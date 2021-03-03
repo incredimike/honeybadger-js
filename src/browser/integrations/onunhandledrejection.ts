@@ -41,7 +41,7 @@ export default function (_window = window): Plugin {
             return
           }
 
-          const message = typeof reason === 'string' ? reason : JSON.stringify(reason)
+          const message = typeof reason === 'string' ? reason : (JSON.stringify(reason) ?? 'Unspecified reason')
           client.notify({
             name: 'window.onunhandledrejection',
             message: `UnhandledPromiseRejectionWarning: ${message}`
